@@ -13,7 +13,7 @@ sudo docker run -d \
   -p 81:81 \
   -p 2003:2003 \
   -p 8125:8125/udp \
-  hopsoft/graphite-statsd
+  downndcity/docker-graphite-statsd
 ```
 
 This starts a Docker container named: **graphite**
