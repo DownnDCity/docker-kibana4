@@ -10,7 +10,7 @@ This image will have you running & collecting stats in just a few minutes.
 ```sh
 sudo docker run -d \
   --name graphite \
-  -p 80:80 \
+  -p 81:81 \
   -p 2003:2003 \
   -p 8125:8125/udp \
   hopsoft/graphite-statsd
@@ -31,7 +31,7 @@ That's it, you're done ... almost.
 
 | Host | Container | Service |
 | ---- | --------- | ------- |
-|   80 |        80 | nginx   |
+|   81 |        81 | nginx   |
 | 2003 |      2003 | carbon  |
 | 8125 |      8125 | statsd  |
 
