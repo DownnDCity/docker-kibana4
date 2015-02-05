@@ -7,27 +7,15 @@ RUN apt-get -y update\
 
 # dependencies
 RUN apt-get -y --force-yes install vim\
- nginx\
- python-dev\
- python-flup\
- python-pip\
+ wget\
  expect\
- git\
- memcached\
- sqlite3\
- libcairo2\
- libcairo2-dev\
- python-cairo\
- pkg-config\
- nodejs
+ git
 
-# python dependencies
-RUN pip install django==1.3\
- python-memcached==1.53\
- django-tagging==0.3.1\
- whisper==0.9.12\
- twisted==11.1.0\
- txAMQP==0.6.2
+# Pull down Kibana Installation File
+RUN wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-beta3.tar.gz
+RUN mv kibana-4.0.0-beta3.tar.gz /usr/local/src/kibana-4.0.0-beta3.tar.gz
+WORKDIR /usr/local/src
+RUN tar -xzf kibana-4.0.0-beta3.tar.gz
 
 # install graphite
 RUN git clone -b 0.9.12 https://github.com/graphite-project/graphite-web.git /usr/local/src/graphite-web
